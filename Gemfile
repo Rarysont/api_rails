@@ -9,6 +9,7 @@ gem "puma", "~> 5.0"
 gem "tzinfo-data"
 gem "bootsnap", require: false
 gem 'rubocop', require: false
+gem "active_model_serializers", "~> 0.10.13"
 
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
@@ -17,4 +18,3 @@ end
 group :development do
   gem "faker", "~> 2.21"
 end
-
