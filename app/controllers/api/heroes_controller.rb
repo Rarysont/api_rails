@@ -4,7 +4,7 @@ class Api::HeroesController < ApplicationController
   # GET /heroes
 
   def index
-    @heroes = Hero.all.sorted_by_name
+    @heroes = Hero.search(params[:term]).sorted_by_name
 
     render json: @heroes
   end
@@ -22,7 +22,7 @@ class Api::HeroesController < ApplicationController
 
     if @hero.save
 
-      render json: @hero, status: :created, location: @hero
+      render json: @hero, status: :created, location: api_hero_url(@hero)
 
     else
 
