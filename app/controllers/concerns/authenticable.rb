@@ -6,12 +6,14 @@ module Authenticable
 
     unless valid_token?
 
-      render json: { errors: 'Por favor, forneça um token no header Authorization', status: :unauthorized }
+      render json: { errors: 'Forneça um header Authorization para se identificar, com pelo menos 10 caracteres',
+
+                     status: :unauthorized }
 
     end
   end
 
   def valid_token?
-    @token.present? && @token == Rails.application.credentials.token
+    @token.present? && @token.size >= 10
   end
 end

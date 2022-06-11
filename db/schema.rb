@@ -10,11 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_10_013019) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_11_232432) do
   create_table "heroes", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "token", null: false
+    t.index ["token"], name: "index_heroes_on_token"
   end
 
 end
